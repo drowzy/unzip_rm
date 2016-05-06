@@ -14,7 +14,8 @@ defmodule UnzipRm do
   def process(opts) do
     File.ls!(opts[:path])
     |> UnzipRm.Ext.filter_with_ext("zip")
-    |> Enum.each(&(IO.puts(&1)))
+    |> Enum.map(&(UnzipRm.Ext.extract(&1)))
+    |> Enum.each(&(IO.puts("#{&1} extracted!")))
   end
 
   defp parse_args(args) do
