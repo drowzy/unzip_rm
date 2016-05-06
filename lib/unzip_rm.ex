@@ -1,11 +1,23 @@
 defmodule UnzipRm do
   def main(args) do
     IO.puts("Running main")
+
+    args
+    |> parse_args
+    |> process
   end
 
-  defp parseArgs(args) do
-    {options, _, _} = OptionsParser.parse(args, switches: [path: :string])
+  def process([]) do
+    IO.puts("No arguments given")
+  end
 
-    options
+  def process(opts) do
+    IO.puts("Arguments #{opts[:path]}")
+  end
+
+  defp parse_args(args) do
+    {opts, _, _} = OptionParser.parse(args, switches: [path: :string])
+
+    opts
   end
 end
