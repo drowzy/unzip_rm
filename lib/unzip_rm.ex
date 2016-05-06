@@ -12,7 +12,9 @@ defmodule UnzipRm do
   end
 
   def process(opts) do
-    IO.puts("Arguments #{opts[:path]}")
+    File.ls!(opts[:path])
+    |> UnzipRm.Ext.filter_with_ext("zip")
+    |> Enum.each(&(IO.puts(&1)))
   end
 
   defp parse_args(args) do
