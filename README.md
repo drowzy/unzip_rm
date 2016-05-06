@@ -1,20 +1,12 @@
 # UnzipRm
 
-**TODO: Add description**
+CLI to extract and remove zip archives for a given directory. Just for fun!
 
-## Installation
+## Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+Takes one option `--path` which is a relative path to a directory containing
+zip archives. The archives will be extracted in the same folder.
 
-  1. Add unzip_rm to your list of dependencies in `mix.exs`:
-
-        def deps do
-          [{:unzip_rm, "~> 0.0.1"}]
-        end
-
-  2. Ensure unzip_rm is started before your application:
-
-        def application do
-          [applications: [:unzip_rm]]
-        end
-
+```bash
+  unzip_rm --path ./
+```
