@@ -1,6 +1,6 @@
 defmodule UnzipRm do
   def main(args) do
-    IO.puts("Running main")
+    IO.puts("Extracting")
 
     args
     |> parse_args
