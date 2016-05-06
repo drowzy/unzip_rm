@@ -5,8 +5,14 @@ defmodule UnzipRm.Ext do
   end
 
   def extract(file) do
-    {:ok, files} = file |> String.to_char_list |> :zip.extract
+    file
+    |> String.to_char_list
+    |> :zip.extract
+  end
 
-    files
+  def delete(file) do
+    result = File.rm(file)
+
+    {result, file}
   end
 end
